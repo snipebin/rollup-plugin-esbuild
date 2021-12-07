@@ -27,7 +27,6 @@ export default {
       // All options are optional
       include: /\.[jt]sx?$/, // default, inferred from `loaders` option
       exclude: /node_modules/, // default
-      sourceMap: false, // default
       minify: process.env.NODE_ENV === 'production',
       target: 'es2017', // default, or 'es20XX', 'esnext'
       jsx: 'transform', // default, or 'preserve'
@@ -53,6 +52,10 @@ export default {
 
 - `include` and `exclude` can be `String | RegExp | Array[...String|RegExp]`, when supplied it will override default values.
 - It uses `jsxFactory`, `jsxFragmentFactory` and `target` options from your `tsconfig.json` as default values.
+
+### Source Map
+
+This plugin always outputs sourcemap but you will also need to enable `output.sourcemap` in your Rollup config.
 
 ### Declaration File
 
