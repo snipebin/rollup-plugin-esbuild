@@ -58,7 +58,8 @@ export type Options = {
   loaders?: {
     [ext: string]: Loader | false
   }
-  pure?: string[]
+  pure?: string[],
+  platform?: CommonOptions['platform']
 }
 
 export default (options: Options = {}): RollupPlugin => {
@@ -181,6 +182,7 @@ export default (options: Options = {}): RollupPlugin => {
         sourcefile: id,
         pure: options.pure,
         legalComments: options.legalComments,
+        platform: options.platform
       })
 
       await warn(this, result.warnings)
